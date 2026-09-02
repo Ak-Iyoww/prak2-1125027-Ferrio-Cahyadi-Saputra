@@ -35,6 +35,8 @@ abstract class Hewan {
 
     abstract String PrintSound();
 
+    abstract String move();
+
     public String PrintData() {
         return "Nama : " + Name + "\nUmur : " + Age + "\nMakanan : " + food;
     }
@@ -47,10 +49,6 @@ abstract class HewanDarat extends Hewan {
         this.NumberOfLegs = JumlahKaki;
     }
 
-    public void move() {
-       System.out.println("Bergerak dengan jalan / lari");
-    }
-
     @Override
    public String PrintData () {
         return super.PrintData() + "\nJumlah kaki : " + NumberOfLegs;
@@ -61,10 +59,15 @@ class Anjing extends HewanDarat{
     public Anjing (String NamaHewan, int Umur, String Makanan, int JumlahKaki) {
     super(NamaHewan, Umur, Makanan, JumlahKaki);    
     }
-    
+
     @Override
     public String PrintSound() {
         return "guk guk";
+    }
+
+    @Override
+    public String move() {
+        return "Berjalan";
     }
 
     @Override
@@ -83,7 +86,12 @@ class Kucing extends HewanDarat{
         return "MIAWW MIIIIIIAAAAW";
     }
 
-     @Override
+    @Override
+    public String move() {
+        return "Berjalan";
+    }
+
+    @Override
     public String PrintData() {
         return super.PrintData() + "\nJenisnya : kuceng";
     }
@@ -98,7 +106,12 @@ class Tikus extends HewanDarat{
     public String PrintSound() {
         return "ini uang tutup mulutnya ya";
     }
-    
+
+    @Override
+    public String move() {
+        return "Berjalan";
+    }
+
      @Override
     public String PrintData() {
         return super.PrintData() + "\nJenisnya : tikus kantor";
@@ -129,6 +142,11 @@ class Hiu extends HewanLaut {
     }
 
     @Override
+    public String move() {
+        return "Berenang";
+    }
+
+    @Override
     public String PrintData() {
         return super.PrintData() + "\nJenisnya : Hiu";
     }
@@ -141,6 +159,11 @@ class Ikan extends HewanLaut {
     @Override
     public String PrintSound(){
         return "blup blup";
+    }
+
+    @Override
+    public String move() {
+        return "Berenang";
     }
 
     @Override
@@ -157,6 +180,12 @@ class Paus extends HewanLaut {
     public String PrintSound(){
         return "nggggguuuuuuk";
     }
+
+    @Override
+    public String move() {
+        return "Berenang";
+    }
+
     @Override
     public String PrintData() {
         return super.PrintData() + "\nJenisnya : Paus";
@@ -187,6 +216,11 @@ class Bebek extends HewanTerbang {
     }
 
     @Override
+    public String move() {
+        return "Berjalan dan berenang";
+    }
+
+    @Override
     public String PrintData() { 
         return super.PrintData() + "\nJenisnya : Bebek";
     }
@@ -199,7 +233,12 @@ class Elang extends HewanTerbang {
 
     @Override
     public String PrintSound(){
-        return "Americaaaa RAAHHHHHHHHH";
+        return "RAAAAAAAHHHHHH";
+    }
+
+    @Override
+    public String move() {
+        return "Berjalan dan Terbang";
     }
 
     @Override
@@ -217,6 +256,12 @@ class Burung extends HewanTerbang {
     public String PrintSound(){
         return "cicit cicit cuit";
     }
+
+    @Override
+    public String move() {
+        return "Berjalan dan Terbang";
+    }
+
     @Override
     public String PrintData() {
         return super.PrintData() + "\nJenisnya : Burung pipit";
@@ -236,10 +281,11 @@ public class Latihan_2 {
         new Elang("Garuda", 5, "Daging", 2.1),
         new Bebek("Donald", 2, "Dedak", 0.8)
         };
-        
+
         for (Hewan h : daftarHewan) {
         System.out.println(h.PrintData());
         System.out.println("Suara : " + h.PrintSound());
+        System.out.println("Bergerak : " + h.move());
         System.out.println("----------------------------------------");
         };
     }
